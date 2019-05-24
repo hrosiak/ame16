@@ -14,6 +14,6 @@ Add .h and .cpp files into your project and:
 Use cmake to build python module, pybind11 is required.
 ```
     import pyame
-    pyame.Sn(12,6,2)
+    pyame.Sn(12,6)
     pyame.Sp(12,6,2)         
 ```
