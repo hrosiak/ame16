@@ -103,5 +103,39 @@ double inline Sp(int a, int z, int n=1){
     return s;
 }
 
+/**
+ * @brief Alpha separation energy
+ * @param a - mass number
+ * @param z - proton number
+ * @return alpha separation energy
+ */
+double inline Sa(int a, int z){
+    double s = 0.0;
+    double mass = get_nuclear_mass(a,z);
+    double mn = get_nuclear_mass(a-4,z-2);
+    double ma = get_nuclear_mass(4,2);
+    if(mass>0 && mn>0){
+        s = -mass + mn + ma;
+        s *= amu;
+    }
+    return s;
+}
+
+/**
+ * @brief Binding energy per nucleon
+ * @param a - mass number
+ * @param z - proton number
+ * @return binding energy energy per nucleon
+ */
+double inline BA(int a, int z){
+    double s = 0.0;
+    double mass = get_nuclear_mass(a,z);
+    if(mass>0 && a>1){
+        s = -mass + (z*proton_mass) + ((a-z)*neutron_mass);
+        s *= amu/a;
+    }
+    return s;
+}
+
 
 } //end of namespace
