@@ -122,6 +122,28 @@ double inline Sa(int a, int z){
 }
 
 /**
+ * @brief separation energy to remove p number of protons and n number of neutrons
+ * @param a - mass number
+ * @param z - proton number
+ * @param p - number of removed protons
+ * @param n - number of removed neutrons
+ * @return alpha separation energy
+ */
+double inline S(int a, int z, int p, int n){
+    double s = 0.0;
+    double mass = get_nuclear_mass(a,z);
+    double mn = get_nuclear_mass(a-n-p,z-p);
+    double ma = get_nuclear_mass(n+p,p);
+    if(n==0)ma = p*proton_mass;
+    if(p==0)ma = n*neutron_mass;
+    if(mass>0 && mn>0 && ma>0){
+        s = -mass + mn + ma;
+        s *= amu;
+    }
+    return s;
+}
+
+/**
  * @brief Binding energy per nucleon
  * @param a - mass number
  * @param z - proton number
