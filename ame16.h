@@ -12,6 +12,8 @@
  *  You should have received a copy of the GNU Affero General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#ifndef AME16_H
+#define AME16_H
 
 #include <cmath>
 
@@ -161,3 +163,4 @@ double inline BA(int a, int z){
 
 
 } //end of namespace
+#endif
