@@ -25,4 +25,5 @@ PYBIND11_MODULE(pyame, m){
 	m.def("Sp",&Sp, "Proton separation energy",py::arg("a"), py::arg("z"), py::arg("n")=1);
 	m.def("Sa",&Sa, "Alpha separation energy");
 	m.def("BA",&BA, "Binding energy per nucleon");
+	m.def("S",&S, "Separation energy for (p,n) particle ");
 }

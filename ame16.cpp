@@ -3397,13 +3397,23 @@ std::vector<ame> ame16_data {
 
 double get_mass(int nid){
     double res = 0.0;
+    /*
     auto it= std::find_if( std::begin(ame16_data),
                         std::end(ame16_data),
                         [nid](const ame &e){
                         if(e.nid == nid)return true;
                         else return false;
         });
-    if(it!=std::end(ame16_data)){
+        */
+    ame ref;
+    ref.nid = nid;
+    auto it = std::lower_bound(std::begin(ame16_data),
+                               std::end(ame16_data),
+                               ref,
+                               [](const ame &e, const ame &n){
+                               return (e.nid < n.nid);
+               });
+    if(it->nid == nid && it!=std::end(ame16_data)){
         res = it->mass;
     }
     return res;
