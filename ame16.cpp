@@ -3397,14 +3397,6 @@ std::vector<ame> ame16_data {
 
 double get_mass(int nid){
     double res = 0.0;
-    /*
-    auto it= std::find_if( std::begin(ame16_data),
-                        std::end(ame16_data),
-                        [nid](const ame &e){
-                        if(e.nid == nid)return true;
-                        else return false;
-        });
-        */
     ame ref;
     ref.nid = nid;
     auto it = std::lower_bound(std::begin(ame16_data),
