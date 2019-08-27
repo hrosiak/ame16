@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.8.2)
 project(ame)
 
+option(TESTS "build tests" OFF)
 ######## build type ############
 if(NOT ${CMAKE_BUILD_TYPE}  STREQUAL "Debug")
     set(CMAKE_BUILD_TYPE "Release")
@@ -18,6 +19,12 @@ MESSAGE(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
 #set(CMAKE_CXX_STANDARD 17)
 #set(CMAKE_CXX_STANDARD_REQUIRED ON)
 MESSAGE(STATUS "install prefix: " ${CMAKE_INSTALL_PREFIX})
+
+
+if(TESTS)
+enable_testing()
+add_subdirectory("tests")
+endif()
 
 
 find_package(PythonInterp)
